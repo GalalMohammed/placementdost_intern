@@ -1,4 +1,4 @@
-def word_counter(file_path):
+def word_counter(file_path: str):
   """
   Counts the occurrences of each word in a given file.
 
