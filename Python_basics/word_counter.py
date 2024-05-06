@@ -1,3 +1,5 @@
+import string
+
 def word_counter(file_path: str):
   """
   Counts the occurrences of each word in a given file.
@@ -8,7 +10,9 @@ def word_counter(file_path: str):
   word_count = {}
   with open(file_path, 'r') as file:
     for line in file:
-      words = line.strip().split()
+      # Remove punctuation from the line
+      line = line.translate(str.maketrans('', '', string.punctuation))
+      words = line.strip().lower().split()
       for word in set(words):
         if word in word_count:
           word_count[word] += words.count(word)
